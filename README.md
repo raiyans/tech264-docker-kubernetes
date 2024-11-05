@@ -10,4 +10,5 @@ Below is a list of all markdown files in this repository, contents generated and
 ## 1 Practical
 
 - [0_0_docker_images.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_0_docker_images.md)
+- [0_0_dockerhub_basics.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_0_dockerhub_basics.md)
 
