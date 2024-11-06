@@ -1,5 +1,21 @@
  Docker Commands Documentation
 
+- [Checking Running Containers](#checking-running-containers)
+- [Starting and Stopping a Container](#starting-and-stopping-a-container)
+- [Removing a Container](#removing-a-container)
+- [Help Command for `docker rm`](#help-command-for-docker-rm)
+- [Running an Nginx Container on a Custom Port](#running-an-nginx-container-on-a-custom-port)
+- [Help Command for `docker exec`](#help-command-for-docker-exec)
+- [Executing Commands in a Running Container](#executing-commands-in-a-running-container)
+- [Commands Inside the Container](#commands-inside-the-container)
+- [Navigating Inside the Container](#navigating-inside-the-container)
+- [Verifying Container Status](#verifying-container-status)
+- [Creating a New Image from Container Changes](#creating-a-new-image-from-container-changes)
+- [Tagging an Image](#tagging-an-image)
+- [Pushing the Image to Docker Hub](#pushing-the-image-to-docker-hub)
+- [Pulling the Image from Docker Hub](#pulling-the-image-from-docker-hub)
+
+
 ## Checking Running Containers
 ```bash
 docker container ls -a
@@ -93,3 +109,74 @@ apt update # (Optional) Starts an update if using a Debian-based container
   - `hostname`: Shows container’s hostname.
   - `uname` and `uname -a`: Display OS and kernel info.
 - **Note**: These commands are helpful for inspecting the environment and verifying the container setup.
+
+
+---
+
+## Navigating Inside the Container
+```bash
+# List all files and directories
+ls
+
+# Change to the nginx directory
+cd nginx
+
+# Edit the index.html file
+nano index.html
+
+# Exit the container
+exit
+```
+- **Description**:
+  - `ls`: Lists all files and directories in the current location.
+  - `cd nginx`: Navigates to the `nginx` directory.
+  - `nano index.html`: Opens the `index.html` file for editing (requires nano installed in the container).
+  - `exit`: Exits the shell and returns to the host machine.
+- **Note**: Useful for inspecting and modifying files inside the container.
+
+---
+
+## Verifying Container Status
+```bash
+docker ps
+```
+- **Description**: Lists currently running containers, showing `CONTAINER ID`, `IMAGE`, `STATUS`, and `PORTS`.
+- **Note**: The `PORTS` column confirms the host-to-container port mapping.
+
+---
+
+## Creating a New Image from Container Changes
+```bash
+docker commit f18cf2e990a1
+```
+- **Description**: Creates a new image from changes made to a container. Outputs the image ID of the newly created image.
+- **Note**: By default, the new image will not have a repository or tag.
+
+---
+
+## Tagging an Image
+```bash
+docker tag 3cba54781453 tech264_raiyan_nginx_edit
+docker tag tech264_raiyan_nginx_edit raiyans/tech264_raiyan_nginx_edit:latest
+```
+- **Description**:
+  - `docker tag <image_id> <repository:tag>`: Tags an image with a repository name and optionally a tag (e.g., `latest`).
+- **Note**: Allows you to prepare the image for pushing to Docker Hub under your own repository.
+
+---
+
+## Pushing the Image to Docker Hub
+```bash
+docker push raiyans/tech264_raiyan_nginx_edit:latest
+```
+- **Description**: Pushes the tagged image to Docker Hub.
+- **Note**: The image is now publicly accessible under your Docker Hub repository.
+
+---
+
+## Pulling the Image from Docker Hub
+```bash
+docker pull raiyans/tech264_raiyan_nginx_edit
+```
+- **Description**: Pulls the image from Docker Hub to the local machine.
+- **Note**: Ensures you have the latest version of the image from Docker Hub.
