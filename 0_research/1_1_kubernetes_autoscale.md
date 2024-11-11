@@ -1,5 +1,39 @@
 # Research Types of Autoscaling with K8s
 
+- [Research Types of Autoscaling with K8s](#research-types-of-autoscaling-with-k8s)
+  - [What is Autoscaling?](#what-is-autoscaling)
+  - [Types of Autoscaling in Kubernetes](#types-of-autoscaling-in-kubernetes)
+    - [1. Horizontal Pod Autoscaling (HPA)](#1-horizontal-pod-autoscaling-hpa)
+    - [2. Vertical Pod Autoscaling (VPA)](#2-vertical-pod-autoscaling-vpa)
+    - [3. Cluster Autoscaling](#3-cluster-autoscaling)
+  - [Difference Between Vertical and Horizontal](#difference-between-vertical-and-horizontal)
+  - [Benefits of Autoscaling](#benefits-of-autoscaling)
+- [The key components of Kubernetes autoscaling](#the-key-components-of-kubernetes-autoscaling)
+  - [1. Resource Request](#1-resource-request)
+    - [Configuring the resource request](#configuring-the-resource-request)
+    - [Pod Disruption Budget](#pod-disruption-budget)
+  - [2. Pod Disruption Budget](#2-pod-disruption-budget)
+  - [3. Horizontal Pod Autoscaler](#3-horizontal-pod-autoscaler)
+  - [4. Cluster Autoscaler](#4-cluster-autoscaler)
+    - [Adding a node](#adding-a-node)
+    - [Removing a node](#removing-a-node)
+- [Use Horizontal Pod Autoscaler (HPA) to scale the app](#use-horizontal-pod-autoscaler-hpa-to-scale-the-app)
+  - [Steps to Implement HPA for Node.js Application](#steps-to-implement-hpa-for-nodejs-application)
+  - [Install Apache](#install-apache)
+  - [1. Define HPA for Node.js App](#1-define-hpa-for-nodejs-app)
+  - [2. Create HPA](#2-create-hpa)
+  - [3. Verify HPA Setup](#3-verify-hpa-setup)
+  - [4. Load Test with Apache Bench (ab)](#4-load-test-with-apache-bench-ab)
+  - [Install Metrics Server](#install-metrics-server)
+  - [Steps to Fix the Metrics Server](#steps-to-fix-the-metrics-server)
+- [Delete \& Create](#delete--create)
+  - [Delete all at once](#delete-all-at-once)
+  - [Delete MongoDB Pod/Deployment and Re-create:](#delete-mongodb-poddeployment-and-re-create)
+    - [Deletion Commands](#deletion-commands)
+    - [Creation Commands](#creation-commands)
+    - [Check They're There](#check-theyre-there)
+
+
 ## What is Autoscaling?
 * Autoscaling in Kubernetes is a way to **automatically adjust** the **number of running pods** or the **resources allocated to them** based on the **current demand**. 
 * This helps ensure that your application can handle varying loads efficiently without manual intervention.
