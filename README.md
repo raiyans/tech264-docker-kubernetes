@@ -12,7 +12,7 @@ Below is a list of all markdown files in this repository, contents generated and
 
 ## 1 Practical
 
-- [0_0_docker_first commands.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_0_docker_first commands.md)
+- [0_0_docker_first_commands.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_0_docker_first_commands.md)
 - [0_1_dockerhub_first_image.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_1_dockerhub_first_image.md)
 - [0_2_docker_compose.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/0_2_docker_compose.md)
 - [1_0_kubernetes_first_cluster.md](https://github.com/raiyans/tech264-docker-kubernetes/blob/main/1_practical/1_0_kubernetes_first_cluster.md)
